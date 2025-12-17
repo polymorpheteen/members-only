@@ -14,29 +14,33 @@
     </p>
     <p>Membership: <%= user.membership_status ? "Premium" : "Basic" %>
     </p>
+    <a href="/log-out">Logout</a>
 
-    <h2>Your Messages</h2>
+    <h2>All Messages</h2>
     <% if (messages.length===0) { %>
-        <p>You have not created any messages yet.</p>
+        <p>No messages have been posted yet.</p>
         <% } else { %>
             <ul>
                 <% messages.forEach(msg=> { %>
                     <li>
                         <strong>
                             <%= msg.title %>
-                        </strong> - <%= new Date(msg.created_at).toLocaleString() %>
-                            <p>
-                                <%= msg.text %>
-                            </p>
-                            <a href="/messages/edit/<%= msg.id %>">Edit</a> |
-                            <a href="/messages/delete/<%= msg.id %>">Delete</a>
+                        </strong> - (@<%= msg.username %>) - <%= new Date(msg.created_at).toLocaleString() %>
+                                <p>
+                                    <%= msg.body %>
+                                </p>
                     </li>
                     <% }) %>
             </ul>
             <% } %>
 
-                <a href="/messages/new">Create New Message</a> |
-                <a href="/log-out">Logout</a>
+                <h2>Create a New Message</h2>
+                <form action="/dashboard" method="post">
+                    <input type="text" name="title" placeholder="Title" require />
+                    <textarea name="body" placeholder="Write your message here..." required></textarea>
+
+                    <button type="submit">Create Message</button>
+                </form>
 </body>
 
 </html>

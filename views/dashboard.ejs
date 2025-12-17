@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+</head>
+
+<body>
+    <h1>Welcome, <%= user.first_name %>
+            <%= user.last_name %>!</h1>
+    <p>Username: <%= user.username %>
+    </p>
+    <p>Membership: <%= user.membership_status ? "Premium" : "Basic" %>
+    </p>
+
+    <h2>Your Messages</h2>
+    <% if (messages.length===0) { %>
+        <p>You have not created any messages yet.</p>
+        <% } else { %>
+            <ul>
+                <% messages.forEach(msg=> { %>
+                    <li>
+                        <strong>
+                            <%= msg.title %>
+                        </strong> - <%= new Date(msg.created_at).toLocaleString() %>
+                            <p>
+                                <%= msg.text %>
+                            </p>
+                            <a href="/messages/edit/<%= msg.id %>">Edit</a> |
+                            <a href="/messages/delete/<%= msg.id %>">Delete</a>
+                    </li>
+                    <% }) %>
+            </ul>
+            <% } %>
+
+                <a href="/messages/new">Create New Message</a> |
+                <a href="/log-out">Logout</a>
+</body>
+
+</html>

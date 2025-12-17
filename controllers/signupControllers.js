@@ -22,7 +22,8 @@ async function postSignUp(req, res, next) {
   try {
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    const query = `INSERT INTO users (first_name, last_name, username, password) VALUES ($1, $2, $3, $4) RETURNING id, first_name, last_name, username`;
+    const query =
+      "INSERT INTO users (first_name, last_name, username, password) VALUES ($1, $2, $3, $4) RETURNING id, first_name, last_name, username";
     const values = [first_name, last_name, username, hashedPassword];
 
     const result = await pool.query(query, values);

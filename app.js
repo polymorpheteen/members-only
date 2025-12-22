@@ -6,6 +6,8 @@ const passport = require("./config/passport");
 const pool = require("./db/pool");
 const pgSession = require("connect-pg-simple")(session);
 
+app.use(express.static("public"));
+
 const indexRouter = require("./routes/indexRouter");
 const signupRouter = require("./routes/signupRouter");
 const dashboardRouter = require("./routes/dashboardRouter");

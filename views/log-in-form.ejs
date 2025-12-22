@@ -4,22 +4,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/login.css">
     <title>Login</title>
 </head>
 
 <body>
-    <h1>Login</h1>
-    <form action="/log-in" method="post">
-        <label for="username">Username:</label>
-        <input type="text" id="username" name="username" required />
+    <div class="wrapper">
+        <h1>Login</h1>
+        <form action="/log-in" method="post" class="login-form">
+            <div class="input-item">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required />
+            </div>
 
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required />
+            <div class="input-item">
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required />
+            </div>
 
-        <button type="submit">Login</button>
-    </form>
+            <button type="submit">Login</button>
+        </form>
 
-    <p>Create new account? <a href="/sign-up">Sign up</a></p>
+        <p>Create new account? <a href="/sign-up">Sign up</a></p>
+    </div>
 </body>
 
 </html>

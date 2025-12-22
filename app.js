@@ -6,8 +6,6 @@ const passport = require("./config/passport");
 const pool = require("./db/pool");
 const pgSession = require("connect-pg-simple")(session);
 
-app.use(express.static("public"));
-
 const indexRouter = require("./routes/indexRouter");
 const signupRouter = require("./routes/signupRouter");
 const dashboardRouter = require("./routes/dashboardRouter");
@@ -15,6 +13,8 @@ const loginRouter = require("./routes/loginRouter");
 const logoutRouter = require("./routes/logoutRouter");
 
 const app = express();
+
+app.use(express.static("public"));
 
 app.set("views", path.join(__dirname, "views"));
 app.set("view engine", "ejs");

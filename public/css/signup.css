@@ -24,7 +24,7 @@ body {
 
 h1 {
     font-family: var(--header-font);
-    font-size: 3rem;
+    font-size: 2.75rem;
     color: #a0435c;
 }
 
@@ -33,7 +33,7 @@ label,
 input,
 button {
     font-family: var(--main-font);
-    font-size: 1.2rem;
+    font-size: 1.15rem;
     letter-spacing: -0.05rem;
     color: #a0435c;
 }
@@ -53,15 +53,14 @@ a {
     text-align: center;
 }
 
-.login-form {
-    padding: 0.4rem 0.6rem;
+.signup-form {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 1.6rem;
 }
 
-.login-btn {
+.signup-btn {
     margin-top: 0.5rem;
     padding: 0.5rem 2rem;
     background-color: #ffecf8;
@@ -70,7 +69,7 @@ a {
     border-radius: 5px;
 }
 
-.login-btn:active {
+.signup-btn:active {
     background-color: #c79bb7;
 }
 

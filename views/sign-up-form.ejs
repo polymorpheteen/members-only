@@ -4,29 +4,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/reset.css">
+    <link rel="stylesheet" href="/css/signup.css">
     <title>Sign Up</title>
 </head>
 
 <body>
-    <h1>Sign up</h1>
-    <form action="/sign-up" method="post">
-        <label for="first_name">First Name:</label>
-        <input id="first_name" name="first_name" type="text" required />
+    <div class="wrapper">
+        <h1>Sign up</h1>
+        <form action="/sign-up" method="post" class="signup-form">
+            <div class="input-item">
+                <label for="first_name">First Name:</label>
+                <input id="first_name" name="first_name" type="text" required />
+            </div>
 
-        <label for="last_name">Last Name:</label>
-        <input id="last_name" name="last_name" type="text" required />
+            <div class="input-item">
+                <label for="last_name">Last Name:</label>
+                <input id="last_name" name="last_name" type="text" required />
+            </div>
 
-        <label for="username">Username:</label>
-        <input id="username" name="username" type="text" required />
+            <div class="input-item">
+                <label for="username">Username:</label>
+                <input id="username" name="username" type="text" required />
+            </div>
 
-        <label for="password">Password:</label>
-        <input id="password" name="password" type="password" required />
+            <div class="input-item">
+                <label for="password">Password:</label>
+                <input id="password" name="password" type="password" required />
+            </div>
 
-        <label for="confirm_password">Confirm Password</label>
-        <input id="confirm_password" name="confirm_password" type="password" required />
+            <div class="input-item">
+                <label for="confirm_password">Confirm Password:</label>
+                <input id="confirm_password" name="confirm_password" type="password" required />
+            </div>
 
-        <button type="submit">Sign Up</button>
-    </form>
+            <button type="submit" class="signup-btn">Sign Up</button>
+        </form>
+
+        <p>Already have an account? <a href="/log-in">Login</a></p>
+    </div>
 </body>
 
 </html>

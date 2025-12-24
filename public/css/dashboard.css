@@ -1,0 +1,142 @@
+@font-face {
+    font-family: 'Alagard';
+    src: url("/fonts/Alagard.ttf") format('truetype');
+}
+
+@font-face {
+    font-family: 'rainyhearts';
+    src: url('/fonts/rainyhearts.ttf') format('truetype');
+}
+
+:root {
+    --header-font: 'Alagard', sans-serif;
+    --main-font: 'rainyhearts', sans-serif;
+}
+
+body {
+    box-sizing: border-box;
+    height: 100vh;
+    display: flex;
+    margin-top: 2rem;
+    flex-direction: column;
+    align-items: center;
+    background-image: url("/images/bg.jpg");
+    background-repeat: repeat;
+    cursor: url("/images/cursor2.gif"), auto;
+}
+
+h1 {
+    font-family: var(--header-font);
+    font-size: 3rem;
+    color: #a0435c;
+}
+
+p,
+label,
+input,
+button,
+a {
+    font-family: var(--main-font);
+    font-size: 1.3rem;
+    color: #a0435c;
+}
+
+a {
+    color: #c95c66;
+}
+
+.wrapper {
+    padding: 1rem 2rem;
+    width: 800px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #ffecf8;
+    background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' stroke='%23A0435CFF' stroke-width='5' stroke-dasharray='6%2c 14' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
+}
+
+.user-card {
+    padding: 0.5rem 1rem;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4rem;
+}
+
+.user-info {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.user-info>h1 {
+    font-size: 1.7rem;
+}
+
+.messages {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 2rem 1rem;
+}
+
+.messages h2 {
+    font-family: var(--header-font);
+    color: #a0435c;
+    font-size: 1.7rem;
+}
+
+.message-container {
+    padding: 1rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.message-title {
+    font-weight: 600;
+}
+
+.message-form form {
+    padding: 1.5rem 1.5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+}
+
+textarea,
+input {
+    padding: 0.4rem 0.8rem;
+    border: 1px solid #a0435c;
+    border-radius: 5px;
+    width: 80%;
+}
+
+textarea:focus,
+input:focus {
+    outline: 1px solid #a0435c;
+}
+
+form textarea {
+    height: 100px;
+    font-family: var(--main-font);
+    color: #c95c66;
+    font-size: 1.3rem;
+    overflow-y: auto;
+    resize: vertical;
+}
+
+.submit-btn {
+    margin-top: 0.5rem;
+    padding: 0.5rem 2rem;
+    background-color: #ffecf8;
+    border: 2px solid #a0435c;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.submit-btn:active {
+    background-color: #c79bb7;
+}

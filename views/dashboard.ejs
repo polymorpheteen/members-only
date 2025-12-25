@@ -12,55 +12,72 @@
 </head>
 
 <body>
-    <div class="wrapper">
-        <section class="user-card">
-            <div class="user-pfp">
-                <img src="/images/kitty.gif" alt="Profile Picture" width="100">
-            </div>
-            <div class="user-info">
-                <h1>Welcome, <%= user.first_name %>
-                        <%= user.last_name %>!</h1>
-                <p>Username: <%= user.username %>
-                </p>
-                <p>Membership: <%= user.membership_status ? "Premium" : "Basic" %> <img
-                            src="<%= user.membership_status ? '/images/admin-membership-icon.gif' : '/images/basic-membership-icon.gif' %>"
-                            alt="<%= user.membership_status ? 'Premium member' : 'Basic member' %>"
-                            class="membership-icon">
-                </p>
-            </div>
-            <a href="/log-out" class="logout-btn">Logout</a>
-        </section>
-
-        <section class="messages">
-            <h2>All Messages</h2>
-            <% if (messages.length===0) { %>
-                <p>No messages have been posted yet.</p>
-                <% } else { %>
-                    <div class="message-container">
-                        <% messages.forEach(msg=> { %>
-                            <div class="message-item">
-                                <p class="message-title">
-                                    <%= msg.title %> - (@<%= msg.username %>) - <%= new
-                                                Date(msg.created_at).toLocaleString() %>
-                                </p>
-                                <p>
-                                    <%= msg.body %>
-                                </p>
-                            </div>
-                            <% }) %>
+    <div class="box19">
+        <div class="box-top">
+            <div class="u01"></div>
+        </div>
+        <div class="box-center">
+            <div class="box-inner">
+                <section class="user-card">
+                    <div class="user-pfp">
+                        <img src="/images/kitty.gif" alt="Profile Picture" width="100">
                     </div>
-                    <% } %>
-                        <div class="message-form">
-                            <h2>Create a New Message</h2>
-                            <form action="/dashboard" method="post">
-                                <input type="text" name="title" placeholder="Title" require />
-                                <textarea name="body" placeholder="Write your message here..." required></textarea>
+                    <div class="user-info">
+                        <h1>Welcome back, <%= user.first_name %>
+                                <%= user.last_name %>!</h1>
+                        <p><span>Username:</span>
+                            <%= user.username %>
+                        </p>
+                        <p><span>Membership:</span>
+                            <%= user.membership_status ? "Premium" : "Basic" %> <img
+                                    src="<%= user.membership_status ? '/images/admin-membership-icon.gif' : '/images/basic-membership-icon.gif' %>"
+                                    alt="<%= user.membership_status ? 'Premium member' : 'Basic member' %>"
+                                    class="membership-icon">
+                        </p>
+                    </div>
+                    <a href="/log-out" class="logout-btn">Logout</a>
+                </section>
 
-                                <button type="submit" class="submit-btn">Create Message</button>
-                            </form>
-                        </div>
-        </section>
+                <section class="messages">
+                    <h2>All Messages</h2>
+                    <% if (messages.length===0) { %>
+                        <p class="message-container">No messages have been posted yet.</p>
+                        <% } else { %>
+                            <div class="message-container">
+                                <% messages.forEach(msg=> { %>
+                                    <div class="message-item">
+                                        <p class="message-title">
+                                            <%= msg.title %> - (@<%= msg.username %>) - <%= new
+                                                        Date(msg.created_at).toLocaleString() %>
+                                        </p>
+                                        <p class="message-body">
+                                            > <%= msg.body %>
+                                        </p>
+                                    </div>
+                                    <% }) %>
+                            </div>
+                            <% } %>
+                                <div class="message-form">
+                                    <h2>Create a New Message</h2>
+                                    <form action="/dashboard" method="post">
+                                        <input type="text" name="title" placeholder="Title" require />
+                                        <textarea name="body" placeholder="Write your message here..."
+                                            required></textarea>
+
+                                        <button type="submit" class="submit-btn">Create Message</button>
+                                    </form>
+                                </div>
+                </section>
+            </div>
+        </div>
+        <div class="box-bottom">
+            <div class="s01"></div>
+        </div>
     </div>
+    <footer>
+        <p>Created by <a class="footer-link" href="https://github.com/polymorpheteen" target="_blank"
+                rel="noopener noreferrer">@polymorpheteen</a></p>
+    </footer>
 </body>
 
 </html>

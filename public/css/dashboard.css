@@ -17,7 +17,7 @@ body {
     box-sizing: border-box;
     height: 100vh;
     display: flex;
-    margin-top: 2rem;
+    margin-top: 1rem;
     flex-direction: column;
     align-items: center;
     background-image: url("/images/bg.jpg");
@@ -45,18 +45,53 @@ a {
     color: #c95c66;
 }
 
-.wrapper {
-    padding: 1rem 2rem;
-    width: 800px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: #ffecf8;
-    background-image: url("data:image/svg+xml,%3csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg'%3e%3crect width='100%25' height='100%25' fill='none' stroke='%23A0435CFF' stroke-width='5' stroke-dasharray='6%2c 14' stroke-dashoffset='0' stroke-linecap='square'/%3e%3c/svg%3e");
+/* main border image */
+
+.box19 {
+    margin: 1em 0;
+    width: 50%;
+}
+
+.u01 {
+    background: url(/images/f-ue.gif) repeat-x;
+    height: 32px;
+    margin: 0 32px;
+}
+
+.s01 {
+    background: url(/images/f-sita.gif) repeat-x;
+    height: 32px;
+    margin: 0 32px;
+}
+
+.box-top {
+    background-image: url(/images/f-kado1.gif), url(/images/f-kado2.gif);
+    background-position: top left, top right;
+    background-repeat: no-repeat, no-repeat;
+    height: 32px;
+}
+
+.box-center {
+    background-image: url(/images/f-migi.gif), url(/images/f-hidari.gif);
+    background-position: top right, top left;
+    background-repeat: repeat-y, repeat-y;
+}
+
+.box-inner {
+    background: #fff;
+    margin: 0 32px;
+    padding: 10px;
+}
+
+.box-bottom {
+    background-image: url(/images/f-kado3.gif), url(/images/f-kado4.gif);
+    background-position: top left, top right;
+    background-repeat: no-repeat, no-repeat;
+    height: 32px;
 }
 
 .user-card {
-    padding: 0.5rem 1rem;
+    padding: 1rem;
     width: 100%;
     display: flex;
     align-items: center;
@@ -70,36 +105,60 @@ a {
     gap: 0.5rem;
 }
 
+.user-info span {
+    font-weight: 600;
+}
+
 .user-info>h1 {
-    font-size: 1.7rem;
+    font-size: 1.8rem;
+    animation: jerk 0.5s infinite;
 }
 
 .messages {
     width: 100%;
     display: flex;
     flex-direction: column;
-    padding: 2rem 1rem;
+    padding: 1rem 1.5rem;
 }
 
 .messages h2 {
     font-family: var(--header-font);
     color: #a0435c;
     font-size: 1.7rem;
+    padding: 1.25rem 0;
 }
 
 .message-container {
-    padding: 1rem 1.5rem;
+    padding: 0 1.5rem;
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
+}
+
+.message-item {
+    width: 85%;
+    border: 2px #d47b83 dotted;
+    border-radius: 10px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
 }
 
 .message-title {
     font-weight: 600;
 }
 
+.message-body {
+    padding: 0 0.5rem;
+}
+
+.message-form {
+    padding-top: 1rem;
+}
+
 .message-form form {
-    padding: 1.5rem 1.5rem;
+    padding: 0rem 1.5rem;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -139,4 +198,26 @@ form textarea {
 
 .submit-btn:active {
     background-color: #c79bb7;
+}
+
+footer {
+    padding: 2rem;
+}
+
+@keyframes jerk {
+    0% {
+        transform: rotate(1deg);
+    }
+
+    50% {
+        transform: rotate(1deg);
+    }
+
+    51% {
+        transform: rotate(-1deg);
+    }
+
+    100% {
+        transform: rotate(-1deg);
+    }
 }

@@ -45,6 +45,11 @@ a {
     color: #c95c66;
 }
 
+a:hover {
+    font-style: italic;
+    text-decoration: none;
+}
+
 /* main border image */
 
 .box19 {
@@ -124,7 +129,7 @@ a {
 .messages h2 {
     font-family: var(--header-font);
     color: #a0435c;
-    font-size: 1.7rem;
+    font-size: 2rem;
     padding: 1.25rem 0;
 }
 
@@ -145,12 +150,33 @@ a {
     gap: 0.5rem;
 }
 
+.message-item.hidden {
+    display: none;
+}
+
+.message-item.visible {
+    display: block;
+}
+
 .message-title {
     font-weight: 600;
 }
 
 .message-body {
     padding: 0 0.5rem;
+}
+
+.show-more-btn {
+    border: none;
+    background-color: transparent;
+    text-decoration: underline;
+    margin-top: 1rem;
+    cursor: pointer;
+}
+
+.show-more-btn:hover {
+    text-decoration: none;
+    font-style: italic;
 }
 
 .message-form {

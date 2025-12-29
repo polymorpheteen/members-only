@@ -35,17 +35,17 @@
                                     class="membership-icon">
                         </p>
                     </div>
-                    <a href="/log-out" class="logout-btn">Logout</a>
+                    <a href="/log-out" class="logout-btn"><span>⇠</span>Logout</a>
                 </section>
 
                 <section class="messages">
-                    <h2>All Messages</h2>
+                    <h2>All Messages <img src="/images/stars.gif" alt=""></h2>
                     <% if (messages.length===0) { %>
                         <p class="message-container">No messages have been posted yet.</p>
                         <% } else { %>
                             <div class="message-container">
-                                <% messages.forEach(msg=> { %>
-                                    <div class="message-item">
+                                <% messages.forEach((msg, index)=> { %>
+                                    <div class="message-item <%= index < 3 ? 'visible' : 'hidden' %>">
                                         <p class="message-title">
                                             <%= msg.title %> - (@<%= msg.username %>) - <%= new
                                                         Date(msg.created_at).toLocaleString() %>
@@ -56,17 +56,21 @@
                                     </div>
                                     <% }) %>
                             </div>
-                            <% } %>
-                                <div class="message-form">
-                                    <h2>Create a New Message</h2>
-                                    <form action="/dashboard" method="post">
-                                        <input type="text" name="title" placeholder="Title" require />
-                                        <textarea name="body" placeholder="Write your message here..."
-                                            required></textarea>
 
-                                        <button type="submit" class="submit-btn">Create Message</button>
-                                    </form>
-                                </div>
+                            <% if (messages.length> 3) {%>
+                                <button id="showMorebtn" class="show-more-btn">Click for more</button>
+                                <% } %>
+                                    <% } %>
+                                        <div class="message-form">
+                                            <h2>Post a Message <img src="/images/stars.gif" alt=""></h2>
+                                            <form action="/dashboard" method="post">
+                                                <input type="text" name="title" placeholder="Title" require />
+                                                <textarea name="body" placeholder="Write your message here..."
+                                                    required></textarea>
+
+                                                <button type="submit" class="submit-btn">Create Message</button>
+                                            </form>
+                                        </div>
                 </section>
             </div>
         </div>
@@ -78,6 +82,21 @@
         <p>Created by <a class="footer-link" href="https://github.com/polymorpheteen" target="_blank"
                 rel="noopener noreferrer">@polymorpheteen</a></p>
     </footer>
+
+    <script>
+        const showMorebtn = document.getElementById("showMorebtn");
+
+        if (showMorebtn) {
+            showMorebtn.addEventListener("click", () => {
+                document.querySelectorAll(".message-item.hidden").forEach(item => {
+                    item.classList.remove("hidden");
+                    item.classList.add("visible")
+                });
+
+                showMorebtn.style.display = "none";
+            });
+        }
+    </script>
 </body>
 
 </html>

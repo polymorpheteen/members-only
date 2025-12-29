@@ -41,6 +41,11 @@ a {
     color: #c95c66;
 }
 
+a:hover {
+    font-style: italic;
+    text-decoration: none;
+}
+
 .wrapper {
     background-color: #ffecf8;
     width: 500px;
@@ -63,7 +68,6 @@ a {
 .login-btn {
     margin-top: 0.5rem;
     padding: 0.5rem 2rem;
-    font-weight: 600;
     background-color: #ffecf8;
     border: 2px solid #a0435c;
     cursor: pointer;

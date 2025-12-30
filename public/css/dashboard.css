@@ -110,13 +110,34 @@ a:hover {
     gap: 0.5rem;
 }
 
-.user-info span {
+p span:first-child {
     font-weight: 600;
 }
 
 .user-info>h1 {
     font-size: 1.8rem;
     animation: jerk 0.5s infinite;
+}
+
+.user-info input {
+    padding: 0.2rem 0.3rem;
+    width: 75px;
+}
+
+.user-info button {
+    margin-top: 0.5rem;
+    font-size: 1.2rem;
+    padding: 0.3rem 1rem;
+    background-color: #ffecf8;
+    border: 2px solid #a0435c;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 40%;
+}
+
+.user-info .edit-actions {
+    display: flex;
+    gap: 0.5rem;
 }
 
 .messages {
@@ -147,7 +168,9 @@ a:hover {
     padding: 1.5rem;
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
+    word-wrap: break-word;
+    overflow-wrap: break-word;
+    word-break: break-word;
 }
 
 .message-item.hidden {
@@ -163,7 +186,7 @@ a:hover {
 }
 
 .message-body {
-    padding: 0 0.5rem;
+    padding: 0.5rem 0.5rem;
 }
 
 .show-more-btn {
@@ -195,6 +218,7 @@ textarea,
 input {
     padding: 0.4rem 0.8rem;
     border: 1px solid #a0435c;
+    color: #c95c66;
     border-radius: 5px;
     width: 80%;
 }
@@ -207,7 +231,6 @@ input:focus {
 form textarea {
     height: 100px;
     font-family: var(--main-font);
-    color: #c95c66;
     font-size: 1.3rem;
     overflow-y: auto;
     resize: vertical;

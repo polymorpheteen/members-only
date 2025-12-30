@@ -33,4 +33,24 @@ async function postMessage(req, res) {
   }
 }
 
-module.exports = { getDashboard, postMessage };
+async function editProfile(req, res) {
+  const userId = req.user.id;
+  const { first_name, last_name, username } = req.body;
+
+  try {
+    await pool.query(
+      `UPDATE users
+    SET first_name = $1,
+    last_name = $2,
+    username = $3
+    WHERE id = $4`,
+      [first_name, last_name, username, userId]
+    );
+
+    res.sendStatus(200);
+  } catch (err) {
+    res.sendStatus(500);
+  }
+}
+
+module.exports = { getDashboard, postMessage, editProfile };

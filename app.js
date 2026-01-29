@@ -1,9 +1,12 @@
+const dotenv = require("dotenv");
 const express = require("express");
 const session = require("express-session");
 const path = require("node:path");
 const passport = require("./config/passport");
 const pool = require("./db/pool");
 const pgSession = require("connect-pg-simple")(session);
+
+dotenv.config();
 
 const indexRouter = require("./routes/indexRouter");
 const signupRouter = require("./routes/signupRouter");
@@ -32,9 +35,12 @@ app.use(
     resave: false,
     saveUninitialized: false,
     cookie: {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production",
+      sameSite: "lax",
       maxAge: 1000 * 60 * 60 * 24,
     },
-  })
+  }),
 );
 
 app.use(passport.initialize());

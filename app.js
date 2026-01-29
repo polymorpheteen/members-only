@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require("express");
 const session = require("express-session");
 const path = require("node:path");
@@ -12,6 +13,8 @@ const loginRouter = require("./routes/loginRouter");
 const logoutRouter = require("./routes/logoutRouter");
 
 const app = express();
+
+app.set("trust proxy", 1);
 
 app.use(express.static("public"));
 
@@ -34,6 +37,7 @@ app.use(
     cookie: {
       secure: process.env.NODE_ENV === "production",
       maxAge: 1000 * 60 * 60 * 24,
+      sameSite: "lax",
     },
   }),
 );
@@ -46,6 +50,12 @@ app.use("/sign-up", signupRouter);
 app.use("/dashboard", dashboardRouter);
 app.use("/log-in", loginRouter);
 app.use("/log-out", logoutRouter);
+
+app.use((req, res, next) => {
+  console.log("Session ID:", req.sessionID);
+  console.log("Session object:", req.session);
+  next();
+});
 
 const PORT = 3000;
 app.listen(PORT, (error) => {

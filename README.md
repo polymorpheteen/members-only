@@ -1,8 +1,8 @@
-# members-only
+# Members Only
 
 ![Project preview](docs/members-only.png)
 
-A simple multi-user platform that allows users to create their own accounts and share messages with other users.
+A simple multi-user platform that allows users to create their own accounts and share messages with other users, built with Express.
 
 ## Features
 
